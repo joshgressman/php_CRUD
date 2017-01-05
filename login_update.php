@@ -1,5 +1,5 @@
 <?php
-// UPDATE Data in the user TokyoTyrantTable
+// UPDATE Data in the user table 
   include "db.php"; //include connection;
   // SELECT QUERY
   $query = "SELECT * FROM User";
