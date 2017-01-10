@@ -1,15 +1,7 @@
-<?php
-// UPDATE Data in the user table 
-  include "db.php"; //include connection;
-  // SELECT QUERY
-  $query = "SELECT * FROM User";
-  //Query built in funciton with the connection and query paramters
-  $result = mysqli_query($connection,$query);
-  if(!$result){
-    die("Query failed" . mysqli_error());
-  }
 
- ?>
+  <?php include "db.php"; ?>
+  <?php include "functions.php"; ?>
+
 
 
 <!DOCTYPE html>
@@ -33,8 +25,13 @@
           <input type="password" class="form-control" name="password" />
         </div>
         <div class="form-group">
-          <select name="" id="">
-            <<option value="">1</option>
+          <select name="id" id="id">
+            <?php
+            //This will loop through the Ids in the database and dynmicaly collator_create
+            //a select option for each id.
+              showAllData();
+
+             ?>
           </select>
         </div>
         <div class="form-group">
