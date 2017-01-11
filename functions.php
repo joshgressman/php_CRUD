@@ -44,5 +44,26 @@ function updateByID() {
     }
 }
 
+//Delete by id function
+function deleteByID() {
+  global $connection;
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $id = $_POST['id'];
+
+  $query = "DELETE FROM User WHERE id = $id";
+
+  //Create the query
+    $result = mysqli_query($connection,$query);
+    if(!$result)
+    {
+      die("Query failed" . mysqli_error($connection));
+    }
+    else
+    {
+      echo "Delete Success";
+    }
+}
+
 
  ?>

@@ -1,21 +1,15 @@
-<?php include "db.php"; ?>
 
+  <?php include "db.php"; ?>
+  <?php include "functions.php"; ?>
 <?php
+if(isset($_POST['submit']))
+{
+deleteByID();
 
-if(isset($_POST['submit'])){
-
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  //DB Connection with mysqli_connect() api localhost, user password , db
-  $connection = mysqli_connect('localhost', 'root', '', 'loginnapp' );
-
-  //Insert Query saved into a $query variable
-  $query = "INSERT INTO User(username, password) VALUES('$username', '$password')";
-
-  //Query built in funciton with the connection and query paramters
-  
 }
+
  ?>
+
 
 
 <!DOCTYPE html>
@@ -29,7 +23,7 @@ if(isset($_POST['submit'])){
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <form action="login_create.php" method="post">
+      <form action="login_delete.php" method="post">
         <div class="form-group">
           <labe for="username">Username</labe>
           <input type="text" class="form-control" name="username" />
@@ -39,7 +33,17 @@ if(isset($_POST['submit'])){
           <input type="password" class="form-control" name="password" />
         </div>
         <div class="form-group">
-          <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
+          <select name="id" id="id">
+            <?php
+            //This will loop through the Ids in the database and dynmicaly collator_create
+            //a select option for each id.
+              showAllData();
+
+             ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" name="submit" class="btn btn-danger" value="DELETE"/>
         </div>
       </form>
     </div>
