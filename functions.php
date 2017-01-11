@@ -18,4 +18,31 @@ function showAllData() {
     echo "<option value='$id'>$id</option>";
   }
 }
+
+
+//Update Query
+function updateByID() {
+  global $connection;
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $id = $_POST['id'];
+
+  $query = "UPDATE User SET ";
+  $query .= "username = '$username', "; //'' because string
+  $query .= "password = '$password' "; //'' because string
+  $query .= "WHERE id = $id"; //no quotes because its a number
+
+  //Create the query
+    $result = mysqli_query($connection,$query);
+    if(!$result)
+    {
+      die("Query failed" . mysqli_error($connection));
+    }
+    else
+    {
+      echo "Update Success";
+    }
+}
+
+
  ?>
