@@ -15,6 +15,7 @@ updateByID();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Update</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="./css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
